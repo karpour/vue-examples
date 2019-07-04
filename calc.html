@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>
+        Calculator!
+    </title>
+    <meta charset="UTF-8">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <input v-model="a" class="form-control" number>
+        <input v-model="b" class="form-control" number>
+        =
+        <span>{{c}}</span>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '.container',
+        data: {
+            a: 1,
+            b: 2
+        },
+        computed: {
+            c: function () {
+                return Math.sqrt(Math.pow(this.a, 2) + Math.pow(this.b, 2))
+            }
+        }
+    });
+</script>
+</html>

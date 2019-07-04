@@ -1,0 +1,33 @@
+[
+    {
+        "name": "Hans",
+        "age": 45,
+        "votes": 0
+    },
+    {
+        "name": "Jan",
+        "age": 43,
+        "votes": 0
+    },
+    {
+        "name": "Ulf",
+        "age": 22,
+        "votes": 0
+    },
+    {
+        "name": "Merten",
+        "age": 65,
+        "votes": 0
+    },
+    {
+        "name": "Olaf",
+        "age": 77,
+        "votes": 0
+    },
+    {
+        "name": "Jürgen",
+        "age": 99,
+        "votes": 0
+    }
+
+]

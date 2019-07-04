@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Colors!</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container" :style="styleObject">
+        <input v-model="styleObject.backgroundColor" type="color">
+        <input v-model="styleObject.backgroundColor" class="form-control">
+    </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '.container',
+        data: {
+            pcolor: '#000000',
+            styleObject: {
+                backgroundColor: "#000000"
+            }
+        },
+        computed: {
+            bgcolor: function () {
+                console.log(this.pcolor);
+            }
+        }
+    });
+</script>
+</html>

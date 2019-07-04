@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Json list</title>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        </head>
+    <body>
+        <div class="container">
+            <div class="slidecontainer">
+                <input v-model="treshold" number type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Votes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="person in candidates">
+                        <td>{{person.name}}</td>
+                        <td>{{person.age}}</td>
+                        <td><button v-on:click="person.votes++">{{person.votes}}</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <pre>
+{{candidates}}
+            </pre>
+            <pre>
+{{$data}}
+            </pre>
+        </div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <!-- vue-resource -->
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <script type="Text/Javascript">
+        new Vue({
+            el: '.container',
+            data: {
+                treshold: 50,
+                list: []
+            },
+            methods: {
+                loadJson: function() {
+                    this.$http.get('./jsonlist.json').then({
+                        function(response) {
+                            this.list = response.body.data;
+                        },
+                        function(response) {
+                            console.log(response);
+                        }
+                    });
+                }
+            },
+            computed: {
+                candidates: function() {
+                    let treshold = this.treshold;
+                    return this.list.filter(function(item){
+                        //console.log(`${item.age}>${treshold}`);
+                        return item.age > Number(treshold);
+                    }).sort(function(a,b){
+                        return a.votes<b.votes;
+                    })
+                }
+            },
+            beforeCreate: function() {
+                this.loadJson();
+            }
+        })
+    </script>
+</html>

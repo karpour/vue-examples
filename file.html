@@ -1,0 +1,26 @@
+<html>
+<meta charset="UTF-8">
+
+<head>
+    <title>Vue.js app</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <input v-model="message">
+    </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+<script>
+    var data = {
+        message: 'Hello world'
+    };
+    new Vue({
+        el: '#app',
+        data: data
+    });
+</script>
+
+</html>

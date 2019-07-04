@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <title>
+        v-show stuff
+    </title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>Second vue.js app</h1>
+    <div id="app">
+        <h1>{{apptitle}}</h1>
+        <h1 v-if="message.length<5">keep typing, only {{5-message.length}} to go</h1>
+        <h1 v-else>top!</h1>
+        <textarea v-model="message"></textarea>
+        <button v-if="message">Send</button>
+
+        <pre>
+{{$data | json}}
+            </pre>
+        <div>
+            {{$el | json}}
+        </div>
+    </div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+<script>
+    var data = {
+        apptitle: 'Apptitle!',
+        message: 'message goes here'
+    };
+    new Vue({
+        el: '#app',
+        data: data
+    })
+</script>
+
+</html>
